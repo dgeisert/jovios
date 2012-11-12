@@ -1,0 +1,102 @@
+﻿<head>
+  	<title>Jovios</title>
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+	   		<div class="container">
+				<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="/home">Jovios</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						{{> nav}}
+					</ul>
+					{{loginButtons}}
+				</div>
+			</div>
+	  	</div>
+	</div>
+	<br>
+	<div class="container">
+		{{> hero}}
+
+		{{{render currentPage}}}
+
+		<hr>
+		<footer>
+		<p>© Jovios 2012</p>
+		</footer>
+</div>
+</body>
+
+<template name="home">
+	<div class="row">
+		{{#each item}}
+		<div class="span4">
+			<h2>{{heading}}</h2>
+			<p>{{text}}</p>
+			<p>
+				<a class="btn" href="{{link}}">{{button}} »</a>
+			</p>
+		</div>
+		{{/each}}
+	</div>
+</template>
+
+<template name="about">
+	<div class="row">
+		{{#each item}}
+		<div class="span4">
+			<h2>{{heading}}</h2>
+			<p>{{text}}</p>
+			<p>
+				<a class="btn" href="{{link}}">{{button}} »</a>
+			</p>
+		</div>
+		{{/each}}
+	</div>
+</template>
+
+<template name="contact">
+	<div class="row">
+		{{#each item}}
+		<div class="span4">
+			<h2>{{heading}}</h2>
+			<p>{{text}}</p>
+			<p>
+				<a class="btn" href="{{link}}">{{button}} »</a>
+			</p>
+		</div>
+		{{/each}}
+	</div>
+</template>
+
+<template name="dashboard">
+	{{#if currentUser}}
+		<h1> welcome back </h1>
+	{{else}}
+		<h1>sign in please</hi>
+	{{/if}}
+</template>
+
+<template name="hero">		
+	<div class="hero-unit">
+		<h1>{{title}}</h1>
+		<p>{{description}}</p>
+		<p>
+			<a class="btn btn-primary btn-large">Learn more »</a>
+		</p>
+	</div>
+</template>
+<template name="nav">
+	{{# each pages}}
+		<li class="active">
+			<a href="/{{page}}">{{page}}</a>
+		</li>
+	{{/each}}
+</template>
